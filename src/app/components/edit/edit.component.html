@@ -1,0 +1,66 @@
+<div class="container mt-4">
+  <h3>✏️ Edit Student</h3>
+
+  <form (ngSubmit)="onUpdate()" #studentForm="ngForm">
+    <div class="mb-3">
+      <label for="name">Name:</label>
+      <input
+        type="text"
+        id="name"
+        class="form-control"
+        name="name"
+        [(ngModel)]="student.name"
+        required
+        #name="ngModel"
+      />
+      <div *ngIf="name.invalid && name.touched" class="text-danger">
+        Name is required.
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="age">Age:</label>
+      <input
+        type="number"
+        id="age"
+        class="form-control"
+        name="age"
+        [(ngModel)]="student.age"
+        required
+        min="1"
+        #age="ngModel"
+      />
+      <div *ngIf="age.invalid && age.touched" class="text-danger">
+        Valid age is required.
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="department">Department:</label>
+      <input
+        type="text"
+        id="department"
+        class="form-control"
+        name="department"
+        [(ngModel)]="student.department"
+        required
+        #department="ngModel"
+      />
+      <div *ngIf="department.invalid && department.touched" class="text-danger">
+        Department is required.
+      </div>
+    </div>
+
+    <button
+      type="submit"
+      class="btn btn-primary me-2"
+      [disabled]="!studentForm.form.valid"
+    >
+      Update Student
+    </button>
+
+    <button type="button" class="btn btn-secondary" (click)="goBack()">
+      Back
+    </button>
+  </form>
+</div>

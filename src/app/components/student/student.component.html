@@ -1,0 +1,41 @@
+<div class="container mt-4">
+  <h1>🎓 Student Management App</h1>
+  <button class="btn btn-primary" (click)="navigateToAddStudent()">
+  <i class="fa fa-plus"></i> Add Student
+</button>
+
+<div style="margin-bottom: 10px;">
+  <input 
+    type="text"
+    placeholder="search by name or department"
+    [(ngModel)]="searchText"
+    class="search-box"
+
+  />
+</div>
+
+
+  <table class="table table-bordered">
+    <thead class="table-dark">
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Department</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let student of filteredStudents">
+        <td>{{ student.id }}</td>
+        <td>{{ student.name }}</td>
+        <td>{{ student.age }}</td>
+        <td>{{ student.department }}</td>
+        <td>
+          <button class="btn btn-warning btn-sm" (click)="editStudent(student.id)">Edit</button>
+          <button class="btn btn-danger btn-sm ms-2" (click)="onDelete(student.id)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
