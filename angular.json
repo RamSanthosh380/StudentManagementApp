@@ -23,6 +23,7 @@
         "build": {
           "builder": "@angular/build:application",
           "options": {
+            "outputPath": "dist/student-ui",
             "browser": "src/main.ts",
             "polyfills": [
               "zone.js"
@@ -35,10 +36,9 @@
               }
             ],
             "styles": [
-                    "node_modules/bootstrap/dist/css/bootstrap.min.css",
-                    "src/styles.css"
-                      ]
-
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "src/styles.css"
+            ]
           },
           "configurations": {
             "production": {
@@ -97,6 +97,9 @@
               "src/styles.css"
             ]
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy"
         }
       }
     }
