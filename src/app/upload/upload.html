@@ -1,0 +1,10 @@
+<h2>Upload PDF</h2>
+
+<form (submit)="onUpload()">
+  <input type="file" (change)="onFileSelected($event)" accept=".pdf" />
+  <button type="submit" [disabled]="!selectedFile">Upload</button>
+</form>
+
+<div *ngIf="response">
+  <p><strong>Uploaded:</strong> {{ response.fileName }} ({{ response.length }} bytes)</p>
+</div>
